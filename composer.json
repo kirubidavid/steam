@@ -12,7 +12,8 @@
         "guzzlehttp/guzzle": "^7.4",
         "vlucas/phpdotenv": "^5.4",
         "illuminate/database": "^8.83",
-        "ramsey/uuid": "^4.2"
+        "ramsey/uuid": "^4.2",
+        "vlucas/valitron": "^1.4"
     },
     "autoload": {
         "psr-4": {

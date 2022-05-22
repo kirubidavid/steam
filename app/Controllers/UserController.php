@@ -7,6 +7,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Models\UsUser;
 use Ramsey\Uuid\Uuid;
+use Valitron\Validator;
 
 class UserController
 {
@@ -27,6 +28,16 @@ class UserController
         $uuid = Uuid::uuid4();
 
         # Form validation
+        $v = new Validator($request->getParsedBody());
+
+        $v->rules (['required'=>['phonenumber', 'firstname', 'othername'],
+                  'lengthMin'=>['phonenumber'=>12]]);
+
+        $v->validate();
+
+        if(!empty($v->errors())){
+            return $response->withJson(['error'=>$v->errors()]);
+        }
 
         # Create user
 
