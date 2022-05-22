@@ -10,7 +10,8 @@
         "slim/slim-skeleton": "3.*",
         "phpunit/phpunit": "^9.5",
         "guzzlehttp/guzzle": "^7.4",
-        "vlucas/phpdotenv": "^5.4"
+        "vlucas/phpdotenv": "^5.4",
+        "illuminate/database": "^8.83"
     },
     "autoload": {
         "psr-4": {

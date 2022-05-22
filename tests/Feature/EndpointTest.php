@@ -15,4 +15,16 @@ class EndpointTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    /** @test */
+    public function post_create_account_point() {
+        $client = new Client();
+        $response = $client->request('POST', 'http://localhost:8181/public/api/account-create', [
+            'form_params' => [
+                'firstname' => 'John',
+                'lastname' => 'Doe',
+                'phonenumber' => '254722000000',
+                'password' => 'Admin123']]);
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
 }
