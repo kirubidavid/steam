@@ -1,1 +1,1 @@
-{"version":1,"defects":{"Tests\\Feature\\EndpointTest::get_home_end_point":4,"Tests\\Feature\\EndpointTest::post_create_account_point":4},"times":{"Tests\\Feature\\EndpointTest::get_home_end_point":0.042,"Tests\\Feature\\EndpointTest::post_create_account_point":0.008}}
+{"version":1,"defects":{"Tests\\Feature\\EndpointTest::get_home_end_point":4,"Tests\\Feature\\EndpointTest::post_create_account_point":4},"times":{"Tests\\Feature\\EndpointTest::get_home_end_point":0.135,"Tests\\Feature\\EndpointTest::post_create_account_point":0.981}}

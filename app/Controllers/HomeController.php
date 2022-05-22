@@ -19,6 +19,7 @@ class HomeController
 
     public function getIndex(Request $request,  Response $response)
     {
-        return $response->withJson(['message' => 'Welcome to Steam!']);
+        phpinfo();
+        #return $response->withJson(['message' => 'Welcome to Steam!']);
     }
 }
