@@ -1,5 +1,26 @@
 {
+    "name": "steam/steam-api",
+    "authors": [
+        {
+            "name": "dkirubi",
+            "email": "kirubidavid@gmail.com"
+        }
+    ],
     "require": {
-        "slim/slim-skeleton": "3.*"
+        "slim/slim-skeleton": "3.*",
+        "phpunit/phpunit": "^9.5",
+        "guzzlehttp/guzzle": "^7.4",
+        "vlucas/phpdotenv": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/"
+        }
     }
+
 }
