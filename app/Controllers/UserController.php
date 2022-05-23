@@ -36,7 +36,7 @@ class UserController
         $v->validate();
 
         if(!empty($v->errors())){
-            return $response->withJson(['error'=>$v->errors()]);
+            return $response->withJson(['error'=>$v->errors()])->withStatus(200); ;
         }
 
         # Create user
