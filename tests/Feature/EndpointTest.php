@@ -16,7 +16,7 @@ class EndpointTest extends TestCase
     }
 
     /** @test */
-    public function post_create_account_point() {
+    public function post_create_account() {
         $client = new Client();
         $response = $client->request('POST', 'http://localhost:8181/public/api/account-create', [
             'form_params' => [
@@ -30,54 +30,73 @@ class EndpointTest extends TestCase
     /** @test */
     public function post_invalid_first_name(Type $var = null)
     {
-        $client = new Client();
-        $response = $client->request('POST', 'http://localhost:8181/public/api/account-create', [
-            'form_params' => [
-                'firstname' => '',
-                'lastname' => 'Doe',
-                'phonenumber' => '254722000000',
-                'password' => 'Admin123']]);
 
-        $this->assertEquals(200, $response->getStatusCode());
+        try{
+            $client = new Client();
+            $response = $client->request('POST', 'http://localhost:8181/public/api/account-create', [
+                'form_params' => [
+                    'firstname' => '',
+                    'lastname' => 'Doe',
+                    'phonenumber' => '254722000000',
+                    'password' => 'Admin123']]);
+        }catch (\Exception $e){
+            $this->assertEquals(400, $e->getCode());
+        }
+
     }
 
     /** @test */
     public function post_invalid_last_name(Type $var = null)
     {
-        $client = new Client();
-        $response = $client->request('POST', 'http://localhost:8181/public/api/account-create', [
-            'form_params' => [
-                'firstname' => 'John',
-                'lastname' => '',
-                'phonenumber' => '254722000000',
-                'password' => 'Admin123']]);
-        $this->assertEquals(200, $response->getStatusCode());
+            
+        try{
+            $client = new Client();
+            $response = $client->request('POST', 'http://localhost:8181/public/api/account-create', [
+                'form_params' => [
+                    'firstname' => 'John',
+                    'lastname' => '',
+                    'phonenumber' => '254722000000',
+                    'password' => 'Admin123']]);
+        }catch (\Exception $e){
+            $this->assertEquals(400, $e->getCode());
+        }
+    
     }
 
     /** @test */
     public function post_invalid_phone_number(Type $var = null)
     {
-        $client = new Client();
-        $response = $client->request('POST', 'http://localhost:8181/public/api/account-create', [
-            'form_params' => [
-                'firstname' => 'John',
-                'lastname' => 'Doe',
-                'phonenumber' => '',
-                'password' => 'Admin123']]);
-        $this->assertEquals(200, $response->getStatusCode());
+                
+        try{
+            $client = new Client();
+            $response = $client->request('POST', 'http://localhost:8181/public/api/account-create', [
+                'form_params' => [
+                    'firstname' => 'John',
+                    'lastname' => 'Doe',
+                    'phonenumber' => '',
+                    'password' => 'Admin123']]);
+        }catch (\Exception $e){
+            $this->assertEquals(400, $e->getCode());
+        }
+        
     }
 
     /** @test */
     public function post_invalid_password(Type $var = null)
     {
-        $client = new Client();
-        $response = $client->request('POST', 'http://localhost:8181/public/api/account-create', [
-            'form_params' => [
-                'firstname' => 'John',
-                'lastname' => 'Doe',
-                'phonenumber' => '254722000000',
-                'password' => '']]);
-        $this->assertEquals(200, $response->getStatusCode());
+                        
+        try{
+            $client = new Client();
+            $response = $client->request('POST', 'http://localhost:8181/public/api/account-create', [
+                'form_params' => [
+                    'firstname' => 'John',
+                    'lastname' => 'Doe',
+                    'phonenumber' => '254722000000',
+                    'password' => '']]);
+        }catch (\Exception $e){
+            $this->assertEquals(400, $e->getCode());
+        }
+                
     }
 
     /** @test */

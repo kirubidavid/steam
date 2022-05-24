@@ -30,13 +30,13 @@ class UserController
         # Form validation
         $v = new Validator($request->getParsedBody());
 
-        $v->rules (['required'=>['phonenumber', 'firstname', 'othername'],
-                  'lengthMin'=>['phonenumber'=>12]]);
+        $v->rules (['required'=>['phonenumber', 'firstname', 'lastname','password'],
+                    'length'=>['phonenumber', 12]]);
 
         $v->validate();
 
         if(!empty($v->errors())){
-            return $response->withJson(['error'=>$v->errors()])->withStatus(200); ;
+            return $response->withJson(['error'=>$v->errors()])->withStatus(400); ;
         }
 
         # Create user
